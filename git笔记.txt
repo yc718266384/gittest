@@ -8,9 +8,9 @@
 查看未提交的修改内容	git diff
 查看提交历史		git log
 查看命令历史		git reflog
-版本切换		git reset --hard commit_id
+版本切换		git reset --hard <commit_id>
 版本回退		git reset --hard HEAD^
-将版本库的文件替换工作区的git checkout -- file
+将版本库的文件替换工作区的git checkout -- <file>
 删除文件		1、git rm <file>
 			2、git commit -m "注释"
 
@@ -33,6 +33,7 @@
 切换分支		git checkout <name>
 创建并切换分支		git checkout -b <name>
 创建、切换并于远程分支关联 git checkout -b dev origin/dev
+			git checkout -b <branch_name> origin/<branch_name>
 查看分支		git branch
 合并某分支到当前分支	git merge <name>
 删除分支		git branch -d <name>
