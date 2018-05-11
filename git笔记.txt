@@ -1,0 +1,52 @@
+
+初始化一个Git仓库 	git init
+添加文件到Git仓库 	1、 git add <file> / git add .
+		  	2、 git commit -m "注释"
+
+版本控制
+掌握工作区的状态 	git status
+查看未提交的修改内容	git diff
+查看提交历史		git log
+查看命令历史		git reflog
+版本切换		git reset --hard commit_id
+版本回退		git reset --hard HEAD^
+将版本库的文件替换工作区的git checkout -- file
+删除文件		1、git rm <file>
+			2、git commit -m "注释"
+
+远程仓库
+1、生成SSH Key 		ssh-keygen -t rsa -C "youremail@example.com" 	一路回车
+	在用户主目录里找到.ssh目录，里面有id_rsa和id_rsa.pub两个文件 id_rsa是私钥，id_rsa.pub是公钥
+2、登录GitHub 打开“Account settings”，“SSH Keys”页面 点“Add SSH Key”，填上任意Title，在Key文本框里粘贴id_rsa.pub文件的内容
+
+关联远程库	git remote add origin <GitHub的链接https/ssh>
+第一次推送	git push -u origin master 
+		由于远程库是空的，我们第一次推送master分支时，加上了-u参数，Git不但会把本地的master分支内容推送的远程新的master分支，还会把本地的master分支和远程的master分支关联起来，在以后的推送或者拉取时就可以简化命令。
+推送		git push origin master（主分支）
+		git push origin <name> (其它分支)
+拉取		git pull
+克隆		git clone <GitHub的链接https/ssh> 
+本地分支与远程分支建立关联	git branch --set-upstream <本地name> origin/<远程name>
+
+分支管理
+创建分支		git branch <name>
+切换分支		git checkout <name>
+创建并切换分支		git checkout -b <name>
+创建、切换并于远程分支关联 git checkout -b dev origin/dev
+查看分支		git branch
+合并某分支到当前分支	git merge <name>
+删除分支		git branch -d <name>
+强行删除未合并的分支	git branch -D <name>
+
+查看分支合并图		git log --graph
+			git log --graph --pretty=oneline --abbrev-commit
+禁用Fast forward合并模式git merge --no-ff -m "描述" <name> （具体有什么用不知道）
+
+debug
+存储当前工作内容	git stash
+查看被存储内容		git stash list
+恢复被存储内容		git stash apply
+删除存储区内容		git stash drop
+回复并删除存储内容	git stash pop
+
+		
